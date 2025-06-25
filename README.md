@@ -1,30 +1,96 @@
-# Scatterbrain Hero Component
+# 🧠 Scatterbrain AI
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+**Your thoughts, organized.**  
+Capture anything, anywhere. Scatterbrain turns it into something real.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/aaron-greenbergs-projects/v0-scatterbrain-hero-component)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/3Y6syGYA3Nj)
+![Hero Image](public/brain.png)
 
-## Overview
+---
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## ✨ What is Scatterbrain?
 
-## Deployment
+Scatterbrain is a magical thought capture system for nonlinear minds. It transforms scattered ideas into beautiful, structured outputs using AI — summaries, content, quotes, and clarity.
 
-Your project is live at:
+Built with:
+- [v0.dev](https://v0.dev) (UI)
+- [React](https://reactjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Vercel](https://vercel.com) (hosting + CI)
+- [GitHub](https://github.com) (version control)
 
-**[https://vercel.com/aaron-greenbergs-projects/v0-scatterbrain-hero-component](https://vercel.com/aaron-greenbergs-projects/v0-scatterbrain-hero-component)**
+---
 
-## Build your app
+## 🚀 Deploy
 
-Continue building your app on:
+This project is automatically deployed via [Vercel](https://vercel.com).  
+Push to `main` and your site updates instantly.
 
-**[https://v0.dev/chat/projects/3Y6syGYA3Nj](https://v0.dev/chat/projects/3Y6syGYA3Nj)**
+---
 
-## How It Works
+## 📦 Local Dev Setup
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+\`\`\`bash
+# Clone the repo
+git clone https://github.com/YOUR_USERNAME/scatterbrain.git
+cd scatterbrain
+
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+\`\`\`
+
+Open [http://localhost:3000](http://localhost:3000) to see your site.
+
+---
+
+## 🛠 Project Structure
+
+\`\`\`
+scatterbrain/
+├── app/                 # Next.js app directory
+├── components/          # Reusable UI components
+├── public/             # Static assets
+├── styles/             # Global styles
+└── README.md           # You are here
+\`\`\`
+
+---
+
+## 🎨 Design System
+
+- **Colors**: Black & white with subtle grays
+- **Typography**: Clean, modern sans-serif
+- **Layout**: Centered, responsive design
+- **Components**: Built with shadcn/ui
+
+---
+
+## 📝 License
+
+MIT License - feel free to use this for your own projects!
+
+---
+
+## 🧠 Vision
+
+Scatterbrain isn't just a note tool — it's cognitive infrastructure.  
+Built to help creators, founders, and thinkers unlock momentum.
+
+---
+
+## 📫 Stay in the Loop
+
+Follow the journey → [scatterbrainai.com](https://scatterbrainai.com)  
+Built in public by [@dreamberglabs](https://twitter.com/dreamberglabs)
+
+---
+
+## License
+
+MIT © 2025 Aaron Greenberg / Dreamberg Labs
+
+---
+
+**Built with ❤️ and scattered thoughts**
