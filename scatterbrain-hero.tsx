@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function ScatterbrainHero() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-black text-white">
@@ -15,12 +17,12 @@ export default function ScatterbrainHero() {
         Capture anything, anywhere. Scatterbrain turns it into something real.
       </p>
 
-      <a
-        href="#waitlist"
+      <Link
+        href="/waitlist"
         className="mt-8 inline-block bg-white text-black text-lg font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition"
       >
         Start Using Your Brain
-      </a>
+      </Link>
     </section>
   )
 }
