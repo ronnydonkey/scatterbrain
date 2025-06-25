@@ -9,145 +9,121 @@ export default function WaitlistPage() {
 
   if (isSubmitted) {
     return (
-      <section
-        className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 bg-black text-white"
-        style={{
-          backgroundImage: "url('/scatterbrain-hero-brain.jpg')",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-90 z-0"></div>
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold max-w-xl leading-tight mb-6 text-center">
-            You're on the list!
-          </h1>
-
-          <p className="text-lg text-gray-300 max-w-xl mb-8 text-center">
-            Thanks for joining the waitlist. We'll email you when Scatterbrain is ready, plus occasionally share
-            something worth your time.
-          </p>
-
-          <Link
-            href="/"
-            className="bg-white text-black text-lg font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition"
-          >
-            Back to Home
-          </Link>
+      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-black text-white">
+        <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
         </div>
+
+        <h1 className="text-4xl md:text-5xl font-bold max-w-xl leading-tight mb-6">You're on the list!</h1>
+
+        <p className="text-lg text-gray-300 max-w-xl mb-8">
+          Thanks for joining the waitlist. We'll email you when Scatterbrain is ready, plus occasionally share something
+          worth your time.
+        </p>
+
+        <Link
+          href="/"
+          className="bg-white text-black text-lg font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition"
+        >
+          Back to Home
+        </Link>
       </section>
     )
   }
 
   return (
-    <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 bg-black text-white"
-      style={{
-        backgroundImage: "url('/scatterbrain-hero-brain.jpg')",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-90 z-0"></div>
-      <div className="relative z-10 flex flex-col items-center">
-        <h1 className="text-4xl md:text-5xl font-bold max-w-xl leading-tight mb-6 text-center">Get Early Access</h1>
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-black text-white">
+      <h1 className="text-4xl md:text-5xl font-bold max-w-xl leading-tight mb-6">Get Early Access</h1>
 
-        <p className="text-lg text-gray-300 max-w-xl mb-8 text-center">
-          Join the waitlist to be the first to use Scatterbrain. We'll email you when it's ready — and occasionally with
-          something worth your time.
-        </p>
+      <p className="text-lg text-gray-300 max-w-xl mb-8">
+        Join the waitlist to be the first to use Scatterbrain. We'll email you when it's ready — and occasionally with
+        something worth your time.
+      </p>
 
-        <form
-          onSubmit={async (e) => {
-            e.preventDefault()
-            setIsSubmitting(true)
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault()
+          setIsSubmitting(true)
 
-            const form = new FormData(e.target as HTMLFormElement)
-            const email = form.get("email")
-            const use_case = form.get("use_case")
+          const form = new FormData(e.target as HTMLFormElement)
+          const email = form.get("email")
+          const use_case = form.get("use_case")
 
-            try {
-              const res = await fetch("https://api.convertkit.com/v3/forms/8228004/subscribe", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  api_key: "b09wOpw_ycO_S6U6idmC0w",
-                  email,
-                  tags: [use_case],
-                }),
-              })
+          try {
+            const res = await fetch("https://api.convertkit.com/v3/forms/8228004/subscribe", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                api_key: "b09wOpw_ycO_S6U6idmC0w",
+                email,
+                tags: [use_case],
+              }),
+            })
 
-              const data = await res.json()
-              if (data.subscription) {
-                setIsSubmitted(true)
-                ;(e.target as HTMLFormElement).reset()
-              } else {
-                alert("⚠️ Something went wrong. Please try again.")
-              }
-            } catch (error) {
+            const data = await res.json()
+            if (data.subscription) {
+              setIsSubmitted(true)
+              ;(e.target as HTMLFormElement).reset()
+            } else {
               alert("⚠️ Something went wrong. Please try again.")
-            } finally {
-              setIsSubmitting(false)
             }
-          }}
-          className="w-full max-w-md flex flex-col gap-4 items-center"
-        >
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
+          } catch (error) {
+            alert("⚠️ Something went wrong. Please try again.")
+          } finally {
+            setIsSubmitting(false)
+          }
+        }}
+        className="w-full max-w-md flex flex-col gap-4"
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email"
+          required
+          disabled={isSubmitting}
+          className="px-5 py-3 rounded-full text-black placeholder-gray-500 disabled:opacity-50"
+        />
+
+        <div className="relative">
+          <select
+            name="use_case"
             required
             disabled={isSubmitting}
-            className="w-full px-5 py-3 rounded-full text-black placeholder-gray-500 disabled:opacity-50 text-center"
-          />
-
-          <div className="relative w-full">
-            <select
-              name="use_case"
-              required
-              disabled={isSubmitting}
-              className="w-full px-5 py-3 rounded-full text-black bg-white appearance-none cursor-pointer disabled:opacity-50 text-center"
-            >
-              <option value="">What are you hoping to use this for?</option>
-              <option value="Content Creation">Content creation</option>
-              <option value="Startup Ideas">Startup ideas</option>
-              <option value="Writing">Essays or writing</option>
-              <option value="Organizing Thoughts">Thinking clearly / organizing thoughts</option>
-              <option value="Other">Something else</option>
-            </select>
-            {/* Custom dropdown arrow */}
-            <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-              <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-white text-black text-lg font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-5 py-3 rounded-full text-black bg-white appearance-none cursor-pointer disabled:opacity-50"
           >
-            {isSubmitting ? "Joining..." : "Join the Waitlist"}
-          </button>
-        </form>
+            <option value="">What are you hoping to use this for?</option>
+            <option value="Content Creation">Content creation</option>
+            <option value="Startup Ideas">Startup ideas</option>
+            <option value="Writing">Essays or writing</option>
+            <option value="Organizing Thoughts">Thinking clearly / organizing thoughts</option>
+            <option value="Other">Something else</option>
+          </select>
+          {/* Custom dropdown arrow */}
+          <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+            <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
 
-        <p className="text-sm text-gray-500 mt-6 max-w-xs text-center">
-          We'll never spam you or sell your data. Just smart linking for big thinking.
-        </p>
-      </div>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="bg-white text-black text-lg font-medium px-6 py-3 rounded-full hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? "Joining..." : "Join the Waitlist"}
+        </button>
+      </form>
 
-      <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col items-center">
-        <p className="text-gray-400 text-sm mb-4 text-center">Follow the build in public:</p>
-        <div className="flex gap-4 justify-center">
+      <p className="text-sm text-gray-500 mt-6 max-w-xs">
+        We'll never spam you or sell your data. Just smart linking for big thinking.
+      </p>
+
+      <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col items-center">
+        <p className="text-gray-400 text-sm mb-4">Follow the build in public:</p>
+        <div className="flex gap-4">
           <a
             href="https://twitter.com/dreamberg"
             target="_blank"
@@ -173,7 +149,7 @@ export default function WaitlistPage() {
         </div>
       </div>
 
-      <Link href="/" className="text-gray-400 hover:text-white transition mt-8 underline text-center">
+      <Link href="/" className="text-gray-400 hover:text-white transition mt-8 underline">
         ← Back to Home
       </Link>
     </section>
