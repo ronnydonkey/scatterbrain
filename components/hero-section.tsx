@@ -21,7 +21,7 @@ export default function HeroSection() {
       <div className="relative z-10 text-center space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight px-0 my-[-10px]">SCATTERBRAIN</h1>
         <p className="text-lg md:text-xl text-white/80 font-medium">Your thoughts, organized.</p>
-        <p className="max-w-md mx-auto text-sm text-white/60">
+        <p className="max-w-md mx-auto text-sm text-white/60 my-[-10px] mb-[-24px]">
           Capture anything, anywhere. Scatterbrain turns it into something real.
         </p>
 
