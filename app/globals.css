@@ -23,6 +23,36 @@ body {
   .animate-pulse-slow {
     animation: pulse 6s ease-in-out infinite;
   }
+
+  /* Floating and pulsing glow animations */
+  .animate-glow-float-1 {
+    animation: glow-float-1 8s ease-in-out infinite, glow-pulse-1 6s ease-in-out infinite;
+  }
+
+  .animate-glow-float-2 {
+    animation: glow-float-2 10s ease-in-out infinite, glow-pulse-2 7s ease-in-out infinite;
+    animation-delay: -2s, -1s;
+  }
+
+  .animate-glow-float-3 {
+    animation: glow-float-3 12s ease-in-out infinite, glow-pulse-3 8s ease-in-out infinite;
+    animation-delay: -4s, -2.5s;
+  }
+
+  .animate-glow-float-4 {
+    animation: glow-float-4 9s ease-in-out infinite, glow-pulse-4 5.5s ease-in-out infinite;
+    animation-delay: -1.5s, -3s;
+  }
+
+  .animate-glow-float-5 {
+    animation: glow-float-5 11s ease-in-out infinite, glow-pulse-5 6.5s ease-in-out infinite;
+    animation-delay: -3.5s, -1.5s;
+  }
+
+  .animate-glow-float-6 {
+    animation: glow-float-6 7s ease-in-out infinite, glow-pulse-6 9s ease-in-out infinite;
+    animation-delay: -2.5s, -4s;
+  }
 }
 
 @keyframes fade-in-keyframes {
@@ -33,6 +63,146 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Floating animations - gentle movement */
+@keyframes glow-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(10px, -15px) scale(1.02);
+  }
+  50% {
+    transform: translate(-5px, -25px) scale(0.98);
+  }
+  75% {
+    transform: translate(-12px, -10px) scale(1.01);
+  }
+}
+
+@keyframes glow-float-2 {
+  0%,
+  100% {
+    transform: translate(48px, 32px) scale(1);
+  }
+  33% {
+    transform: translate(60px, 20px) scale(1.03);
+  }
+  66% {
+    transform: translate(35px, 45px) scale(0.97);
+  }
+}
+
+@keyframes glow-float-3 {
+  0%,
+  100% {
+    transform: translate(-64px, 48px) scale(1);
+  }
+  30% {
+    transform: translate(-50px, 35px) scale(1.01);
+  }
+  70% {
+    transform: translate(-75px, 60px) scale(0.99);
+  }
+}
+
+@keyframes glow-float-4 {
+  0%,
+  100% {
+    transform: translate(80px, -40px) scale(1);
+  }
+  40% {
+    transform: translate(95px, -25px) scale(1.02);
+  }
+  80% {
+    transform: translate(65px, -55px) scale(0.98);
+  }
+}
+
+@keyframes glow-float-5 {
+  0%,
+  100% {
+    transform: translate(-32px, -64px) scale(1);
+  }
+  50% {
+    transform: translate(-20px, -80px) scale(1.01);
+  }
+}
+
+@keyframes glow-float-6 {
+  0%,
+  100% {
+    transform: translate(-96px, 80px) scale(1);
+  }
+  35% {
+    transform: translate(-110px, 65px) scale(1.03);
+  }
+  65% {
+    transform: translate(-80px, 95px) scale(0.97);
+  }
+}
+
+/* Pulsing animations - opacity and subtle scale changes */
+@keyframes glow-pulse-1 {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes glow-pulse-2 {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.28;
+  }
+}
+
+@keyframes glow-pulse-3 {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.22;
+  }
+}
+
+@keyframes glow-pulse-4 {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes glow-pulse-5 {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.18;
+  }
+}
+
+@keyframes glow-pulse-6 {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.16;
   }
 }
 
