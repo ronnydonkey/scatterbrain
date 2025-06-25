@@ -10,6 +10,30 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fade-in-keyframes 1s ease-out forwards;
+  }
+
+  .animate-fade-in.delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fade-in-keyframes {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer base {

@@ -1,5 +1,5 @@
-import ScatterbrainHero from "../scatterbrain-hero"
+import HeroSection from "../components/hero-section"
 
 export default function Page() {
-  return <ScatterbrainHero />
+  return <HeroSection />
 }
